@@ -1,5 +1,12 @@
 # 04 — WinBox Complete Guided Tour
 
+> [!IMPORTANT]
+> This chapter teaches the WinBox shell and the most important windows. The
+> exhaustive menu/submenu reference now lives in the
+> [WinBox Menu-by-Menu Field Manual](winbox/README.md). Use that manual when you
+> need to know what every visible menu contains, what opens when it is selected,
+> how an item is created, and how the GUI maps to RouterOS CLI.
+
 WinBox is a graphical client for RouterOS, not a separate configuration language. Most windows mirror a CLI menu. A menu can appear or disappear depending on RouterOS version, packages, device hardware, license, and user permissions.
 
 ## 1. The loader: before you connect

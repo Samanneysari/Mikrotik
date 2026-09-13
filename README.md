@@ -48,6 +48,7 @@ Read [Start Here](docs/00-start-here.md), build the [Lab Environment](docs/02-la
 
 - [03 — RouterOS, RouterBOARD, first access, upgrades, backup and recovery](docs/03-routeros-first-access.md)
 - [04 — WinBox complete guided tour](docs/04-winbox-complete-tour.md)
+- [WinBox menu-by-menu field manual](docs/winbox/README.md) — every sidebar family, submenu, window, add/edit workflow, verification path, and conditional-menu note
 - [05 — Ethernet, bridges, switching, VLAN foundations and wireless](docs/05-layer2-wireless.md)
 - [06 — IPv4/IPv6, ARP, DHCP and DNS](docs/06-ip-services.md)
 - [07 — Routing fundamentals and static routes](docs/07-routing-fundamentals.md)

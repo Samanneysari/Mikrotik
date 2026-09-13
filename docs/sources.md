@@ -31,6 +31,12 @@ Do not assume “newer” always means “safe for this network.” Operators sh
 4. export and back up first;
 5. schedule rollback and out-of-band access.
 
+The menu-by-menu GUI manual targets **WinBox v4**. WinBox is a client view of
+the connected RouterOS object model: visible menus and fields still depend on
+the router version, installed packages, device hardware, device mode, license
+and user permissions. Conditional fields are labeled instead of being promised
+on every device.
+
 ## Source hierarchy when information conflicts
 
 1. The current device's generated CLI (`?`, `print detail`, export) for what that exact build exposes.

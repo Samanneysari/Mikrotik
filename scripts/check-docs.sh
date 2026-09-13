@@ -16,6 +16,11 @@ required=(
   docs/17-bgp.md
   docs/18-mpls.md
   docs/coverage-matrix.md
+  docs/winbox/README.md
+  docs/winbox/menu-manifest.tsv
+  docs/winbox/submenu-manifest.tsv
+  docs/winbox/05-ip-core.md
+  docs/winbox/12-tools.md
   labs/README.md
   exams/mtcna-practice-01.md
   exams/mtcre-practice-01.md
@@ -25,6 +30,64 @@ required=(
 for path in "${required[@]}"; do
   if [[ ! -s "$path" ]]; then
     echo "ERROR required file missing or empty: $path" >&2
+    failures=$((failures + 1))
+  fi
+done
+
+# The WinBox field manual is contract-driven: every manifest entry must point
+# to a non-empty reference, and each baseline sidebar menu must remain listed in
+# the manual index. This prevents a future reorganization from silently dropping
+# a menu family.
+manifest="docs/winbox/menu-manifest.tsv"
+while IFS=$'\t' read -r id menu menu_path reference; do
+  [[ "$id" == \#* || -z "$id" ]] && continue
+  if [[ ! -s "docs/winbox/$reference" ]]; then
+    echo "ERROR WinBox manifest reference missing or empty: $reference ($menu)" >&2
+    failures=$((failures + 1))
+  fi
+  if ! rg -F -q "| $menu |" docs/winbox/README.md; then
+    echo "ERROR WinBox sidebar menu absent from index: $menu" >&2
+    failures=$((failures + 1))
+  fi
+done < "$manifest"
+
+submenu_manifest="docs/winbox/submenu-manifest.tsv"
+while IFS=$'\t' read -r menu_path reference; do
+  [[ "$menu_path" == \#* || -z "$menu_path" ]] && continue
+  if [[ ! -s "docs/winbox/$reference" ]]; then
+    echo "ERROR WinBox submenu reference missing or empty: $reference ($menu_path)" >&2
+    failures=$((failures + 1))
+    continue
+  fi
+  if ! rg -F -q "$menu_path" "docs/winbox/$reference"; then
+    echo "ERROR WinBox submenu absent from reference: $menu_path -> $reference" >&2
+    failures=$((failures + 1))
+  fi
+done < "$submenu_manifest"
+
+winbox_required_paths=(
+  'IP → Addresses'
+  'IP → ARP'
+  'IP → DHCP Client'
+  'IP → DHCP Server'
+  'IP → DNS'
+  'IP → Firewall'
+  'IP → IPsec'
+  'IP → Services'
+  'IP → Hotspot'
+  'IP → VRF'
+  'Tools → Ping'
+  'Tools → Traceroute'
+  'Tools → IP Scan'
+  'Tools → Torch'
+  'Tools → Packet Sniffer'
+  'Tools → Bandwidth Test'
+  'Tools → Profile'
+  'Tools → Netwatch'
+)
+for menu_path in "${winbox_required_paths[@]}"; do
+  if ! rg -F -q "$menu_path" docs/winbox; then
+    echo "ERROR required WinBox submenu not documented: $menu_path" >&2
     failures=$((failures + 1))
   fi
 done

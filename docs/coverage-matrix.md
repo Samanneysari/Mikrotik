@@ -53,6 +53,16 @@ The following are deliberately added because they materially affect current work
 - RPKI awareness, BFD awareness, and BGP operational safety;
 - incident workflow and rollback design.
 
+## WinBox GUI coverage
+
+The [WinBox Menu-by-Menu Field Manual](winbox/README.md) adds a separate GUI
+coverage contract beyond the certification objectives. Its manifest covers all
+20 baseline sidebar families and a conditional package/hardware catalog. Each
+family maps the visible submenu/window to purpose, controls, add/edit workflow,
+verification, failure modes and CLI family. CI verifies that every manifest
+entry resolves and that critical deep submenus—including **Tools → IP Scan**—do
+not disappear during later edits.
+
 ## Known outline age and interpretation
 
 The official PDFs currently linked by MikroTik show last-edited dates of 2016 (MTCNA), 2015 (MTCRE), and 2012 (MTCINE). They include RouterOS v6-era menus and protocols. Where the outline and current RouterOS differ, this repository:

@@ -1,0 +1,22 @@
+# id	menu	path	reference
+quick-set	Quick Set	Quick Set	01-client-and-quick-set.md
+interfaces	Interfaces	Interfaces	02-interfaces.md
+bridge	Bridge	Bridge	03-bridge-switch-mesh.md
+ppp	PPP	PPP	04-ppp.md
+switch	Switch	Switch	03-bridge-switch-mesh.md
+mesh	Mesh	Mesh	03-bridge-switch-mesh.md
+ip	IP	IP	05-ip-core.md
+ipv6	IPv6	IPv6	07-ipv6.md
+mpls	MPLS	MPLS	08-routing-mpls.md
+routing	Routing	Routing	08-routing-mpls.md
+system	System	System	09-system.md
+queues	Queues	Queues	10-queues.md
+files	Files	Files	11-files-log-radius.md
+log	Log	Log	11-files-log-radius.md
+radius	RADIUS	RADIUS	11-files-log-radius.md
+tools	Tools	Tools	12-tools.md
+terminal	New Terminal	New Terminal	13-terminal-support.md
+supout	Make Supout.rif	Make Supout.rif	13-terminal-support.md
+manual	Manual	Manual	13-terminal-support.md
+exit	Exit	Exit	13-terminal-support.md
+conditional	Conditional/package menus	Conditional	14-conditional-menus.md
